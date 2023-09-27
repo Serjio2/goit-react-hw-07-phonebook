@@ -5,17 +5,16 @@ import { Section } from './Section/Section';
 import { Filter } from './Filter/Filter';
 
 export const App = () => {
- 
   return (
     <div>
       <GlobalStyle />
 
       <Section title="Phonebook">
-        <ContactForm  />
+        <ContactForm />
       </Section>
 
       <Section title="Contacts">
-        <Filter  />
+        <Filter />
         <ContactList />
       </Section>
     </div>

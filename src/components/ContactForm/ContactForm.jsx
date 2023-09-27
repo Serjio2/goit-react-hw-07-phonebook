@@ -1,10 +1,8 @@
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { nanoid } from 'nanoid';
 import { StyledForm, StyledInput } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
-// import { PatternFormat } from 'react-number-format';
+import { addContact } from 'redux/operations';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('Required'),
@@ -25,7 +23,7 @@ export const ContactForm = () => {
       return alert(`${value.name} is already in contacts`);
     }
 
-    dispatch(addContact({ ...value, id: nanoid() }));
+    dispatch(addContact({ ...value}));
     actions.resetForm();
   };
   return (

@@ -1,7 +1,6 @@
 import { StyledContactList } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
-import { getAllContacts } from 'redux/operations';
+import { deleteContact, getContacts } from 'redux/operations';
 import { useEffect } from 'react';
 
 export const ContactList = () => {
@@ -15,14 +14,14 @@ export const ContactList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllContacts());
+    dispatch(getContacts());
   }, [dispatch]);
 
   return (
     <StyledContactList>
       {filteredContacts.map(contact => (
         <li key={contact.id}>
-          {contact.name}: {contact.number}
+          {contact.name}: {contact.phone}
           <button onClick={() => dispatch(deleteContact(contact.id))}>
             Delete
           </button>
