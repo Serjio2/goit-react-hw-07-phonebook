@@ -3,24 +3,24 @@ import { addContact, deleteContact, getContacts } from './operations';
 
 const contactsPanding = state => {
   state.isLoading = true;
-};
+}
 
 const contactsFulfilled = (state, action) => {
   state.isLoading = false;
   state.items = action.payload;
   state.error = null;
-};
+}
 
 const contactsRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-};
+}
 
 const contactsPostFulfilled = (state, action) => {
   state.isLoading = false;
   state.items.push(action.payload);
   state.error = null;
-};
+}
 
 const contactsDeleteFulfilled = (state, action) => {
   state.isLoading = false;
@@ -29,7 +29,7 @@ const contactsDeleteFulfilled = (state, action) => {
     contact => contact.id === action.payload.id
   );
   state.items.splice(index, 1);
-};
+}
 
 export const contactsSlice = createSlice({
   name: 'contacts',

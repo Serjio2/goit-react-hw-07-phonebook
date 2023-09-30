@@ -22,6 +22,7 @@ export const ContactForm = () => {
     if (allcontacts.find(contact => contact.name === value.name)) {
       return alert(`${value.name} is already in contacts`);
     }
+    
     if (allcontacts.find(contact => contact.phone === value.phone)) {
       return alert(`${value.phone} is already in contacts`);
     }
